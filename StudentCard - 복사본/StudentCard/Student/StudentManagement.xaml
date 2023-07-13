@@ -1,0 +1,91 @@
+﻿<mah:MetroWindow 
+    x:Class="StudentCard.StudentManagement"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:StudentCard"
+    mc:Ignorable="d"
+    Title="학생증" Height="550" Width="400" FontFamily="NanumGothic"
+    WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded" Closing="MetroWindow_Closing">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- 내부 컨트롤의 높이를 따라감 -->
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Menu IsMainMenu="True" Style="{StaticResource MahApps.Styles.Menu}">
+                
+            </Menu>
+
+            <ToolBarTray>
+                <ToolBar Style="{StaticResource MahApps.Styles.ToolBar}">
+                    
+                    <Button x:Name="BtnStopSubscribe" ToolTip="외박 신청" Click="MenuItem_Click">
+                        <iconPacks:PackIconVaadinIcons Kind="Airplane" />
+                    </Button>
+
+                    <Separator />
+                    <Button x:Name="BtnExitProgram" ToolTip="프로그램 끝내기" Click="BtnExitProgram_Click">
+                        <iconPacks:PackIconMaterial Kind="ExitRun" />
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>
+        </StackPanel>
+        
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition/>
+                
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Column="0" Grid.Row="0" x:Name="qrImage" Binding.SourceUpdated="qrImage_SourceUpdated" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Grid.ColumnSpan="2" Margin="5" />
+            
+            <Label Grid.Row="1" Grid.Column="0" Content="이름 : " FontSize="15" 
+                   VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="TxtName" Text="이름" FontSize="15"
+                     VerticalAlignment="Center" HorizontalAlignment="Left" />
+            <Label Grid.Row="2" Grid.Column="0" Content="학번 : " FontSize="15" 
+                   VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="LblStudentId" Text="학번" FontSize="15" 
+                   VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="전공 : " FontSize="15" 
+                   VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="LblMajor" Text="전공" FontSize="15" 
+                   VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="105,30,0,0" Grid.RowSpan="2" Width="170">
+                <Button x:Name="BtnLogout" Content="로그아웃" Margin="0,0,10,0" Width="60"
+                        Style="{StaticResource MahApps.Styles.Button.Dialogs}" Click="BtnLogout_Click"/>
+                <Button x:Name="BtnClose" Content="종료" Width="60" Click="BtnClose_Click"
+                        Style="{StaticResource MahApps.Styles.Button.Dialogs.Accent}"/>
+
+            </StackPanel>
+
+
+        </Grid>
+
+        <StatusBar Grid.Row="2">
+            <StatusBarItem x:Name="StsStatus">관리자/학생 화면</StatusBarItem>
+            <Separator Style="{StaticResource MahApps.Styles.Separator.StatusBar}" />
+            <StatusBarItem>이름 :</StatusBarItem>
+            <StatusBarItem x:Name="StsName"></StatusBarItem>
+        </StatusBar>
+    </Grid>
+</mah:MetroWindow>

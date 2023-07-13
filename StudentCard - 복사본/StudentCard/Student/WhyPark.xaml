@@ -1,0 +1,73 @@
+﻿<mah:MetroWindow 
+    x:Class="StudentCard.WhyPark"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:StudentCard"
+    mc:Ignorable="d"
+    Title="외박신청" Height="550" Width="400" FontFamily="NanumGothic"
+    Loaded="MetroWindow_Loaded" Closing="MetroWindow_Closing">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="20.627"/>
+        </Grid.RowDefinitions>
+
+
+        <Label Grid.Column="0" Content="학번 : " 
+               HorizontalAlignment="Left" Margin="46,0,0,0" VerticalAlignment="Center"
+               FontSize="20"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="이름 : " 
+               HorizontalAlignment="Left" Margin="46,0,0,0" VerticalAlignment="Center" 
+               FontSize="20"/>
+        <TextBlock Grid.Column="1" x:Name="TxtStudentId" 
+                   Width="180" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" FontSize="20" Height="30"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="TxtStudentName" 
+                   Width="180" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" FontSize="20" Height="30"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="사유 : " 
+               HorizontalAlignment="Left" Margin="46,0,0,0" VerticalAlignment="Center"
+               FontSize="20" />
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="TxtReason" 
+                 HorizontalAlignment="Center" TextWrapping="Wrap" 
+                 VerticalAlignment="Center" Width="180" Height="30"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="출발 : " 
+               HorizontalAlignment="Left" Margin="46,0,0,0" VerticalAlignment="Center" 
+               FontSize="20"/>
+        <DatePicker Grid.Row="3" Grid.Column="1" x:Name="DPstart" HorizontalAlignment="Center" 
+                    Margin="0,18,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.522,2.71"
+                    Height="30"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="도착 : " 
+               HorizontalAlignment="Left" Margin="46,0,0,0" VerticalAlignment="Center" 
+               FontSize="20"/>
+        <DatePicker Grid.Row="4" Grid.Column="1" x:Name="DPend" HorizontalAlignment="Center" 
+                    Margin="0,18,0,0" VerticalAlignment="Top" Width="180" 
+                    RenderTransformOrigin="0.522,2.71"
+                    Height="30"/>
+
+
+        <!--<Label Grid.Row="3" Grid.Column="1" Content="/" HorizontalAlignment="Left" 
+               Margin="130,8,0,0" VerticalAlignment="Top" FontSize="30" />-->
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2"
+                    Orientation="Horizontal" HorizontalAlignment="Center"
+                    Height="100" Margin="78,0,60,-150" Grid.RowSpan="2">
+            <Button Grid.Row="5" Grid.ColumnSpan="2" x:Name="BtnRequest" Content="신청" VerticalAlignment="Center" 
+                    Height="50" Width="150" FontSize="20" Click="BtnRequest_Click"
+                    Margin="0,0,0,0"
+                    Style="{StaticResource MahApps.Styles.Button.Dialogs.Accent}"/>
+        </StackPanel>
+
+    </Grid>
+</mah:MetroWindow>

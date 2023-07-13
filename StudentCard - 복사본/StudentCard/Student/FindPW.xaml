@@ -1,0 +1,88 @@
+﻿<mah:MetroWindow 
+    x:Class="StudentCard.FindPW"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:StudentCard"
+    mc:Ignorable="d"
+    Title="비밀번호 찾기" Height="550" Width="400" Closing="MetroWindow_Closing" Loaded="MetroWindow_Loaded"
+    FontFamily="NanumGothic">
+    <Grid Margin="20,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="정보 입력" FontSize="22" FontWeight="Bold"  
+                   VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <Label Grid.Row="1" Grid.Column="0" Content="학번" FontSize="20" Margin="10" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <Label Grid.Row="2" Grid.Column="0" Content="이름" FontSize="20" Margin="10" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <Label Grid.Row="3" Grid.Column="0" Content="전공" FontSize="20" Margin="10" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="10,10" FontSize="15" 
+                     Text="{Binding InFirstName}" x:Name="TxtStudentId"
+                     mah:TextBoxHelper.Watermark="학번을 입력하세요" 
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True" KeyDown="TxtStudentId_KeyDown"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="10,10" FontSize="15" 
+                     Text="{Binding InFirstName}" x:Name="TxtName"
+                     mah:TextBoxHelper.Watermark="이름을 입력하세요" 
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True"
+                     InputMethod.PreferredImeState="On"
+                     InputMethod.PreferredImeConversionMode="Native" KeyDown="TxtName_KeyDown"/>
+            <ComboBox Grid.Row="3" Grid.Column="1" Margin="10,10" FontSize="15" 
+                      Text="{Binding InFirstName}" x:Name="CboMajor"
+                      mah:TextBoxHelper.Watermark="전공을 선택하세요" 
+                      mah:TextBoxHelper.UseFloatingWatermark="True"
+                      mah:TextBoxHelper.ClearTextButton="True" KeyDown="CboMajor_KeyDown"/>
+            <!--<TextBox Grid.Row="3" Grid.Column="1" Margin="10,10" FontSize="15" 
+                     Text="{Binding InFirstName}" x:Name="TxtMajor"
+                     mah:TextBoxHelper.Watermark="전공을 입력하세요" 
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True"/>-->
+            <Button Grid.Row="5" Grid.Column="1" x:Name="BtnFindPw" Content="찾기" Width="100" Height="50" Margin="5"
+                    FontSize="16" Style="{StaticResource MahApps.Styles.Button.Dialogs.Accent}" HorizontalAlignment="Right" 
+                    Click="BtnFindPw_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" >
+                <Label Grid.Row="3" Grid.Column="0" x:Name="LblFindPw" Content="찾은 비밀번호 : " FontSize="20" Margin="10" 
+                   VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock x:Name="TxbFindPW" Text="" HorizontalAlignment="Right" Width="180" Margin="20" FontSize="20" VerticalAlignment="Center" />
+            </Grid>
+
+            <Grid Grid.Row="3" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <Button x:Name="BtnHome" Content="홈으로" Width="100" Height="50" Margin="7" 
+                            FontSize="16" Style="{StaticResource MahApps.Styles.Button.Dialogs.Accent}" Click="BtnHome_Click" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>
